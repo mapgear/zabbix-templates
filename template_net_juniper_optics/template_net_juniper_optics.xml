@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2022-05-11T08:50:59Z</date>
+    <date>2022-05-12T07:57:07Z</date>
     <groups>
         <group>
             <name>Templates/Network devices</name>
@@ -9,8 +9,11 @@
     </groups>
     <templates>
         <template>
-            <template>Template Juniper Optics</template>
-            <name>Template Juniper Optics</name>
+            <template>Template Net Juniper Optics SNMP</template>
+            <name>Template Net Juniper Optics SNMP</name>
+            <description>Monitor the optics (SFPs) of a Juniper device.&#13;
+&#13;
+More information: https://www.github.com/mapgear/zabbix-templates</description>
             <groups>
                 <group>
                     <name>Templates/Network devices</name>
@@ -54,7 +57,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.21.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentModuleTemperatureHighAlarmThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>°C</units>
                             <description>Module temperature high alarm threshold.</description>
@@ -65,8 +68,8 @@
                             </application_prototypes>
                             <preprocessing>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -75,7 +78,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.23.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentModuleTemperatureHighWarningThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>°C</units>
                             <description>Module temperature high warning threshold.</description>
@@ -86,8 +89,8 @@
                             </application_prototypes>
                             <preprocessing>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -96,7 +99,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.22.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentModuleTemperatureLowAlarmThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>°C</units>
                             <description>Module temperature low alarm threshold.</description>
@@ -107,8 +110,8 @@
                             </application_prototypes>
                             <preprocessing>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -117,7 +120,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.24.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentModuleTemperatureLowWarningThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>°C</units>
                             <description>Module temperature low warning threshold.</description>
@@ -128,8 +131,8 @@
                             </application_prototypes>
                             <preprocessing>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -138,7 +141,6 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.8.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
                             <value_type>FLOAT</value_type>
                             <units>°C</units>
                             <description>Module temperature.</description>
@@ -149,8 +151,8 @@
                             </application_prototypes>
                             <preprocessing>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>15m</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -159,7 +161,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.9.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentRxLaserPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Receiver laser power high alarm threshold.</description>
@@ -174,8 +176,8 @@
                                     <params>.01</params>
                                 </step>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -184,7 +186,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.11.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentRxLaserPowerHighWarningThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Receiver laser power high warning threshold.</description>
@@ -199,8 +201,8 @@
                                     <params>.01</params>
                                 </step>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -209,7 +211,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.10.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentRxLaserPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Receiver laser power low alarm threshold.</description>
@@ -224,8 +226,8 @@
                                     <params>.01</params>
                                 </step>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -234,7 +236,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.12.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentRxLaserPowerLowWarningThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Receiver laser power low warning threshold.</description>
@@ -249,8 +251,8 @@
                                     <params>.01</params>
                                 </step>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -259,7 +261,6 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.5.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Receiver laser power.</description>
@@ -273,10 +274,6 @@
                                     <type>MULTIPLIER</type>
                                     <params>.01</params>
                                 </step>
-                                <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
-                                </step>
                             </preprocessing>
                         </item_prototype>
                         <item_prototype>
@@ -284,7 +281,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.17.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentTxLaserOutputPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Transmitter laser power high alarm threshold.</description>
@@ -299,8 +296,8 @@
                                     <params>.01</params>
                                 </step>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -309,7 +306,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.19.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentTxLaserOutputPowerHighWarningThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Transmitter laser power high warning threshold.</description>
@@ -324,8 +321,8 @@
                                     <params>.01</params>
                                 </step>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -334,7 +331,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.18.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentTxLaserOutputPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Transmitter laser power low alarm threshold.</description>
@@ -349,8 +346,8 @@
                                     <params>.01</params>
                                 </step>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -359,7 +356,7 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.20.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentTxLaserOutputPowerLowWarningThreshold[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
+                            <delay>1h</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Transmitter laser bias current low warning threshold.</description>
@@ -374,8 +371,8 @@
                                     <params>.01</params>
                                 </step>
                                 <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
+                                    <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                                    <params>1d</params>
                                 </step>
                             </preprocessing>
                         </item_prototype>
@@ -384,7 +381,6 @@
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.2636.3.60.1.1.1.1.7.{#SNMPINDEX}</snmp_oid>
                             <key>jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}]</key>
-                            <delay>15m</delay>
                             <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Transmitter laser output power.</description>
@@ -398,113 +394,119 @@
                                     <type>MULTIPLIER</type>
                                     <params>.01</params>
                                 </step>
-                                <step>
-                                    <type>DISCARD_UNCHANGED</type>
-                                    <params/>
-                                </step>
                             </preprocessing>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentTxLaserOutputPowerLowWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPowerLowWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module Laser Output Power (TX) Low warning</name>
                             <priority>WARNING</priority>
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFNAME}({#IFALIAS}): Module Tx Output Laser Power Low alarm</name>
-                                    <expression>{Template Juniper Optics:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentTxLaserOutputPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                                    <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentRxLaserPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module Rx Laser Power High alarm</name>
                             <priority>HIGH</priority>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentRxLaserPowerHighWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPowerHighWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module Rx Laser Power High warning</name>
                             <priority>WARNING</priority>
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFNAME}({#IFALIAS}): Module Rx Laser Power High alarm</name>
-                                    <expression>{Template Juniper Optics:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentRxLaserPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                                    <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentRxLaserPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module Rx Laser Power Low alarm</name>
                             <priority>HIGH</priority>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentRxLaserPowerLowWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPowerLowWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module Rx Laser Power Low warning</name>
                             <priority>WARNING</priority>
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFNAME}({#IFALIAS}): Module Rx Laser Power Low alarm</name>
-                                    <expression>{Template Juniper Optics:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentRxLaserPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                                    <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentRxLaserPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentModuleTemperatureHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperatureHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module temperature high alarm</name>
                             <priority>HIGH</priority>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentModuleTemperatureHighWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperatureHighWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module temperature high warning</name>
                             <priority>WARNING</priority>
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFNAME}({#IFALIAS}): Module temperature high alarm</name>
-                                    <expression>{Template Juniper Optics:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentModuleTemperatureHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                                    <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperatureHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentModuleTemperatureLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperatureLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module temperature low alarm</name>
                             <priority>HIGH</priority>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentModuleTemperatureLowWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperatureLowWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module temperature low warning</name>
                             <priority>WARNING</priority>
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFNAME}({#IFALIAS}): Module temperature low alarm</name>
-                                    <expression>{Template Juniper Optics:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentModuleTemperatureLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                                    <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperature[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentModuleTemperatureLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentTxLaserOutputPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module Tx Output Laser Power High alarm</name>
                             <priority>HIGH</priority>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentTxLaserOutputPowerHighWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPowerHighWarningThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module Tx Output Laser Power High warning</name>
                             <priority>WARNING</priority>
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFNAME}({#IFALIAS}): Module Tx Output Laser Power High alarm</name>
-                                    <expression>{Template Juniper Optics:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Juniper Optics:jnxDomCurrentTxLaserOutputPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                                    <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &gt; {Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPowerHighAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Juniper Optics:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Juniper Optics:jnxDomCurrentTxLaserOutputPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
+                            <expression>{Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPower[ifDescr.{#SNMPINDEX}].last()} &lt; {Template Net Juniper Optics SNMP:jnxDomCurrentTxLaserOutputPowerLowAlarmThreshold[ifDescr.{#SNMPINDEX}].last()}</expression>
                             <name>Interface {#IFNAME}({#IFALIAS}): Module Tx Output Laser Power Low alarm</name>
                             <priority>HIGH</priority>
                         </trigger_prototype>
                     </trigger_prototypes>
                 </discovery_rule>
             </discovery_rules>
+            <tags>
+                <tag>
+                    <tag>class</tag>
+                    <value>network</value>
+                </tag>
+                <tag>
+                    <tag>target</tag>
+                    <value>juniper</value>
+                </tag>
+            </tags>
         </template>
     </templates>
 </zabbix_export>
